@@ -308,13 +308,13 @@
       {
         name: "動画",
         url: "https://www.youtube.com/",
-        icon: "▶️",
+        icon: "",
         color: "#ffe8e8"
       },
       {
         name: "写真",
         url: "https://www.instagram.com/",
-        icon: "📷",
+        icon: "",
         color: "#f5e9ff"
       },
       {
@@ -343,30 +343,55 @@
 
     const isImage = (value) => /^(https?:\/\/|data:image\/|\/)/i.test(value);
 
+    const getFavicon = (url) => {
+      try {
+       const parsedUrl = new URL(url);
+        if (
+          parsedUrl.protocol !== "http:" &&
+          parsedUrl.protocol !== "https:"
+        ) {
+          return "";
+        }
+        return (
+         "https://www.google.com/s2/favicons" +
+         "?domain=" +
+         encodeURIComponent(parsedUrl.hostname) +
+         "&sz=128"
+        );
+      } catch {
+        return "";
+      }
+    };
+
     MY_APPS.forEach((app) => {
       const link = document.createElement("a");
       link.className = "app-item";
       link.href = app.url;
       link.setAttribute("aria-label", app.name);
-
       const icon = document.createElement("span");
       icon.className = "app-icon";
-      icon.style.setProperty("--icon-bg", app.color || "#ffffff");
-
-      if (isImage(app.icon)) {
+      icon.style.setProperty( "--icon-bg", app.color || "#ffffff");
+      const customIcon = app.icon || "";
+      const autoIcon = getFavicon(app.url);
+      if (isImage(customIcon) || (!customIcon && autoIcon)) {
         const image = document.createElement("img");
-        image.src = app.icon;
+        image.src =
+          isImage(customIcon)
+            ? customIcon
+            : autoIcon;
         image.alt = "";
         image.loading = "lazy";
+        image.onerror = () => {
+          image.remove();
+          icon.textContent = "↗";
+        };
         icon.appendChild(image);
       } else {
-        icon.textContent = app.icon || "↗";
+        icon.textContent = customIcon || "↗";
       }
-
       const name = document.createElement("span");
       name.className = "app-name";
       name.textContent = app.name;
-
       link.append(icon, name);
       grid.appendChild(link);
     });
