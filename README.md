@@ -67,7 +67,7 @@ HTML内で `【編集` を検索すると、変更する場所が見つかりま
 このテンプレートは、次の1行でページをホーム画面アプリ化しています。
 
 ```html
-<script src="https://ojapp.app/js/ojapp.js"></script>
+<script src="https://ojapp.app/js/ojapp_1p1a.js"></script>
 ```
 
 [OJapp Freeについて](https://ojapp.app/one-page-one-app)
