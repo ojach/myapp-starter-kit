@@ -111,6 +111,12 @@ https://ユーザー名.github.io/リポジトリ名/
 ```html
 <meta name="ojapp:icon" content="./images/icon.webp">
 ```
+画像サイズが大きい場合、重たくなったり表示遅れや表示されない場合があります。
+
+その場合は画像を`webp`に変換してみてください。
+
+簡単な変換ツールがあるので、よかったらお使いください。
+[https://ojapp.app/tips_image/](https://ojapp.app/tips_image/)
 
 ## OJapp Free
 
