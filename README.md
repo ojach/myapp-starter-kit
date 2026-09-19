@@ -104,10 +104,12 @@ https://ユーザー名.github.io/リポジトリ名/
 
 画像は **512×512pxの正方形画像** を推奨します。
 
-画像をリポジトリへ追加した場合は、次のようにファイル名を指定できます。
+このリポジトリをコピーしていれば`images`フォルダがあると思うので、画像はそこに入れるようにしてください。
+
+画像を`images`フォルダへ追加した場合は、次のようにファイル名を指定できます。
 
 ```html
-<meta name="ojapp:icon" content="./icon.webp">
+<meta name="ojapp:icon" content="./images/icon.webp">
 ```
 
 ## OJapp Free
