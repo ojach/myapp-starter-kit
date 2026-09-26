@@ -437,9 +437,9 @@
       ];
     };
 
-    const top = readColor("--status-top");
-    const after = readColor("--status-after-scroll");
-    const changeDistance = 150; // この距離で色Bになり、その後は固定
+    const top = readColor("--bg-top-end");
+    const after = readColor("--bg-after-scroll");
+    const changeDistance = 160; // この距離で色Bになり、その後は固定
 
     function update() {
     const progress = Math.min((scrollY + 12) / changeDistance, 1);
