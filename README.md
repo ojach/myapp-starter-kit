@@ -1,3 +1,4 @@
+Languages: [English](https://github.com/ojach/myapp-template/)
 # マイアプリ テンプレート
 
 よく使うWebサイトやSNS、動画、地図などを、スマホのアプリ画面のようにまとめられるHTMLテンプレートです。
